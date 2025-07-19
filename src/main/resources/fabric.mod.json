@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "naurobopulse",
+	"version": "${version}",
+	"name": "NauRoboPulse",
+	"description": "",
+	"authors": [
+		"TfNautica",
+		"just_orl"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"icon": "assets/naurobopulse/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ntc.tfnautica.naurobopulse.NauRoboPulse"
+		],
+		"client": [
+			"ntc.tfnautica.naurobopulse.NauRoboPulseClient"
+		]
+	},
+	"mixins": [
+		"naurobopulse.mixins.json",
+		{
+			"config": "naurobopulse.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.7",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

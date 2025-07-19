@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "ntc.tfnautica.naurobopulse.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ClientPlayerEntityMixin",
+		"PlayerEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
