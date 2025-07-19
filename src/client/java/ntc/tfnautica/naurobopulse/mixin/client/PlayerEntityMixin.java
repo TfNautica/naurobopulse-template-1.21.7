@@ -1,6 +1,8 @@
 package ntc.tfnautica.naurobopulse.mixin.client;
 
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -17,6 +19,10 @@ public abstract class PlayerEntityMixin {
 
     @Inject(method = {"updateSwimming"}, at = {@At("HEAD")}, cancellable = true)
     private void preventSwimming(CallbackInfo ci) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if(client.world == null || client.player == null) return;
+        ClientPlayerEntity player = client.player;
+        if(player.isCreative() || player.isSpectator()) return;
         ci.cancel();
     }
 

@@ -18,6 +18,7 @@ public class ClientPlayerEntityMixin {
 
 		MinecraftClient client = MinecraftClient.getInstance();
 		PlayerEntity player = client.player;
+		if(player.isCreative() || player.isSpectator()) return;
 		if (player.isTouchingWater() || player.isSubmergedInWater()) {
 			if (client.options.jumpKey.isPressed()) {
 				client.options.jumpKey.setPressed(false);
